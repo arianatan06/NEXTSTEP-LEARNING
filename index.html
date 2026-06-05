@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEXTSTEP LEARNING</title>
+  <link rel="icon" type="image/png" href="LOGO.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#f8fbff;
+      color:#1c1c1c;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      background:#e1f7e1;
+      padding:13px 4%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .logo{
+      font-size:1.6rem;
+      font-weight:750;
+      color:#2f6b75;
+      display: flex;
+      align-items: center; /* Centers items vertically */
+      gap: 10px;           /* Creates space between image and text */
+      text-decoration: none;
+    }
+
+    /* Controls the size of your logo image */
+    .logo img {
+      height: 70px;        /* Adjust height to fit your navbar */
+      width: auto;         /* Maintains aspect ratio */
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      font-size:0.95rem;
+      font-weight:500;
+    }
+
+    .nav-links a:hover{
+      color:#2f6b75;
+    }
+
+    #about, #pricing, #testimonials, #contact{
+      background:#e1f7e1;
+    }
+
+    #services, #booking, #faq{
+      background:white;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:80px 8%;
+      gap:50px;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h1{
+      font-size:3rem;
+      line-height:1.1;
+      margin-bottom:30px;
+      color:#2f6b75;
+    }
+
+    .hero-text p{
+      font-size:1.1rem;
+      margin-bottom:30px;
+      color:#000000;
+      max-width:600px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .primary-btn{
+      background:#2f6b75;
+      color:white;
+    }
+
+    .primary-btn:hover{
+      background:#204744;
+    }
+
+    .secondary-btn{
+      border:2px solid #2f6b75;
+      color:#2f6b75;
+    }
+
+    .secondary-btn:hover{
+      background:#2f6b75;
+      color:white;
+    }
+
+    .hero-image{
+      flex:1;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:24px;
+      object-fit:cover;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:2.5rem;
+      margin-bottom:10px;
+      color:#0f172a;
+    }
+
+    .section-title p{
+      color:#64748b;
+    }
+
+    /* ABOUT */
+
+    .about-content{
+      display:grid;
+      grid-template-columns: repeat(2, 2fr);
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-box{
+      background:white;
+      padding:30px;
+      border-radius:40px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .about-box h3{
+      color:#f7bc28;
+      text-align:center;
+      margin:15px 0;
+    }
+
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:25px;
+    }
+
+    .service-card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 5px 18px rgba(0,0,0,0.05);
+      transition:0.3s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .service-card h3{
+      margin:15px 0;
+      color:#f7bc28;
+    }
+
+    /* PRICING */
+
+    .pricing-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .price-card{
+      background:white;
+      border-radius:24px;
+      padding:40px;
+      text-align:center;
+      box-shadow:0 5px 18px rgba(0,0,0,0.05);
+    }
+
+    .price-card h3{
+      font-size:1.5rem;
+      margin-bottom:10px;
+      color:#f7bc28;
+    }
+
+    .price{
+      font-size:3rem;
+      color:#2f6b75;
+      font-weight:700;
+      margin:20px 0;
+    }
+
+    .price-card ul{
+      list-style:none;
+      margin-bottom:25px;
+    }
+
+    .price-card li{
+      margin:12px 0;
+      color:#475569;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .testimonial{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 5px 18px rgba(0,0,0,0.05);
+    }
+
+    .testimonial h4{
+      margin-top:15px;
+      color:#f7bc28;
+    }
+
+    /* BOOKING */
+
+    .booking{
+      background:#2f6b75;
+      color:white;
+      border-radius:30px;
+      text-align:center;
+      padding:70px 30px;
+    }
+
+    .booking h2{
+      font-size:2.5rem;
+      margin-bottom:20px;
+    }
+
+    .booking p{
+      margin-bottom:30px;
+    }
+
+    .booking a{
+      background:white;
+      color:#2f6b75;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+    }
+
+    .booking-options{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .booking-options a{
+      text-decoration:none;
+    }
+
+    .booking-options .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .booking-options .primary-btn{
+      background:white;
+      color:#2f6b75;
+    }
+
+    .booking-options .secondary-btn{
+      background:transparent;
+      border:2px solid white;
+      color:white;
+    }
+
+    .booking-options .secondary-btn:hover{
+      background:white;
+      color:#2f6b75;
+    }
+
+
+    /* FAQ */
+
+    .faq-container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .faq{
+      background:white;
+      padding:25px;
+      border-radius:16px;
+      margin-bottom:18px;
+      box-shadow:0 5px 18px rgba(0,0,0,0.05);
+    }
+
+    .faq h4{
+      margin-bottom:10px;
+      color:#f7bc28;
+    }
+
+    /* CONTACT */
+
+    .contact-container{
+      max-width:700px;
+      margin:0 auto;
+    }
+
+    .contact-info{
+      background:#2f6b75;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 5px 18px rgba(0,0,0,0.05);
+      text-align:center;
+      max-width:600px;
+      margin:auto;
+    }
+
+    .contact-info h3{
+      color:white;
+    }
+
+    .contact-info p{
+      color:white;
+    }
+  
+
+    input, textarea{
+      padding:14px;
+      border:1px solid #dbeafe;
+      border-radius:12px;
+      font-family:'Poppins', sans-serif;
+    }
+
+    textarea{
+      resize:none;
+      height:140px;
+    }
+
+    button{
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#2f6b75;
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#204744;
+      color:white;
+      margin-top:70px;
+    }
+
+    @media(max-width:900px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="#home" class="logo">
+      <img src="LOGO.png">
+          NEXTSTEP LEARNING
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#booking">Booking</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section id="home" class="hero">
+
+    <div class="hero-text">
+      <br>
+      <h1>Helping Students Reach Their Full Potential</h1>
+
+      <p>
+      <strong>NEXTSTEP LEARNING</strong> provides personalized online tutoring for students in <strong>Grades 1–12</strong> across Ontario. 
+      </p>
+
+      <p> Our supportive and relatable learning approach helps students feel comfortable asking questions, building confidence and achieving academic success.</p>
+
+      <p>
+        Math   |   Science   |   English 
+        </p>
+
+      <p>
+        History   |   Social Studies   |   Geography
+      </p>
+
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/14375456524?text=Hello,%20I%20am%20interested%20in%20booking%20a%20tutoring%20session."
+           class="btn primary-btn"
+           target="_blank">
+           Book a Session
+        </a>        
+        <a href="#services" class="btn secondary-btn">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="homeimg.png">
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+
+  <section id="about">
+
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>Personalized online tutoring that supports every student’s growth.</p>
+    </div>
+
+    <div class="about-content">
+
+      <div class="about-box">
+        <h3>Our Mission</h3>
+        <p>
+          At NEXTSTEP LEARNING, we believe that every student can succeed when given the right guidance, encouragement and opportunities to learn. <br><br>Our mission is to make learning engaging and confidence-building by providing personalized instruction that helps students achieve their academic goals.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h3>Credentials and Experience</h3>
+        <li>Experience working with elementary-aged students through an after-school educational program</li>
+        <li>Participant in the University of Waterloo Mathematics Contests</li>
+        <li>Strong understanding of the Ontario curriculum and classroom expectations</li>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+      <h2>Subjects We Tutor</h2>
+      <p>Flexible online tutoring tailored to your child’s needs.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>Math</h3>
+        <li>Step-by-step problem-solving</li>
+        <li>Support with homework and tests</li>
+        <li>Personalized lessons tailored to each student’s learning level</li>
+      </div>
+
+      <div class="service-card">
+        <h3>Science</h3>
+        <li>Easy-to-understand explanations</li>
+        <li>Interactive learning to make science engaging</li>
+        <li>Help with assignments, labs, quizzes and tests</li>      
+      </div>
+
+      <div class="service-card">
+        <h3>English</h3>
+        <li>Improve reading comprehension, writing and grammar</li>
+        <li>Build confidence in essay writing</li>
+        <li>Support with vocabulary, spelling and assignments</li>
+      </div>
+
+      <div class="service-card">
+        <h3>History & Social Studies</h3>
+        <li>Learn important historical events and their real-world impact</li>
+        <li>Develop critical thinking and research skills</li>
+        <li>Help with projects, presentations and test preparation</li>
+      </div>
+
+      <div class="service-card">
+        <h3>Geography</h3>
+        <li>Understand maps, environments and global connections</li>
+        <li>Learn importance of geography through engaging lessons</li>
+        <li>Support with assignments, case studies and tests</li>
+      </div>
+
+      <div class="service-card">
+        <h3>More Subjects</h3>
+        <p><br><br>Coming soon!</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRICING -->
+
+  <section id="pricing">
+
+    <div class="section-title">
+      <h2>Pricing</h2>
+      <p>Affordable tutoring designed for families.</p>
+    </div>
+
+    <div class="pricing-container">
+
+      <div class="price-card">
+        <h3>Private Tutoring</h3>
+
+        <div class="price">$20</div>
+
+        <ul>
+          <li>Personalized Support</li>
+          <li>1-on-1 Online Sessions</li>
+          <li>Flexible Scheduling</li>
+        </ul>
+
+        <a href="#booking" class="btn primary-btn">Book Now</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Sibling Discount</h3>
+
+        <div class="price">$32</div>
+
+        <ul>
+          <li>Discounted Family Rate</li>
+          <li>Online Sessions</li>
+          <li>Flexible Scheduling</li>
+
+        </ul>
+
+        <a href="#booking" class="btn primary-btn">Book Now</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOOKING -->
+
+  <section id="booking">
+
+    <div class="booking">
+      <h2>Book Your First Session</h2>
+
+      <p>Ready to get started? Contact us through your preferred method below.</p>
+
+      <div class="booking-options">
+        <a href="https://wa.me/14375456524?text=Hello,%20I%20am%20interested%20in%20booking%20a%20tutoring%20session."
+           class="btn primary-btn"
+           target="_blank">
+           WhatsApp
+        </a>
+
+        <a href="mailto:nslearning26@gmail.com?subject=Tutoring Inquiry"
+           class="btn secondary-btn">
+           Email
+        </a>
+
+        <a href="tel:+14375456524"
+           class="btn secondary-btn">
+           Call
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- TESTIMONIALS -->
+
+  <section id="testimonials">
+
+    <div class="section-title">
+      <h2>Testimonials</h2>
+      <p>What parents and students are saying.</p>  
+    </div>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial">
+        <p>
+          “My 5th grade daughter became much more confident in math after just a few sessions.”
+        </p>
+        <h4>— Parent Review</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          “My child went from completely shutting down in class to actually raising her hand. She felt comfortable asking the tutor 'silly' questions she was too scared to ask her teacher!”
+        </p>
+        <h4>— Parent Review</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          "Scheduling is very flexible, great communication. Highly recommend!”
+        </p>
+        <h4>— Parent Review</h4>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section id="faq">
+
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-container">
+
+      <div class="faq">
+        <h4>What subjects and grade levels do you tutor?</h4>
+        <p>NEXTSTEP LEARNING offers online tutoring for students in Grades 1–12. We provide support in Math, Science, English, History & Social Studies and Geography.</p>
+      </div>
+
+      <div class="faq">
+        <h4>Are sessions online?</h4>
+        <p>Yes, all tutoring sessions are fully online.</p>
+      </div>
+
+      <div class="faq">
+        <h4>How long are tutoring sessions, and how often should students meet with a tutor?</h4>
+        <p>Each tutoring session is 1 hour long. Students can schedule sessions as often as needed, whether they require occasional assistance or ongoing academic support.</p>
+      </div>
+
+      <div class="faq">
+        <h4>Do you offer group sessions or only one-on-one tutoring?</h4>
+        <p>Our primary focus is one-on-one tutoring to provide personalized instruction. Group sessions may also be available upon request.</p>
+      </div>
+
+      <div class="faq">
+        <h4>How do you assess a student's needs before starting?</h4>
+        <p>Before tutoring begins, we provide a short intake form for parents and students to complete. This helps us understand the student's academic goals, strengths, challenges and learning style so we can tailor sessions to their needs.</p>
+      </div>
+
+      <div class="faq">
+        <h4>How do I book a tutoring session?</h4>
+        <p>Booking is easy. Simply contact us through WhatsApp at (437) 545-6524, and we will help schedule a session that works for you.</p>
+      </div>
+
+      <div class="faq">
+        <h4>What is your cancellation policy?</h4>
+        <p>We kindly ask that cancellations or rescheduling requests be made at least 24 hours in advance. This allows us to accommodate other students and maintain scheduling flexibility.</p>
+      </div>
+
+      <div class="faq">
+        <h4>What payment methods do you accept?</h4>
+        <p>We currently accept payment through Interac e-Transfer, providing a convenient payment process.</p>
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Let's Get Your Child on Track</p>    
+    </div>
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+
+        <h3>Contact Information</h3>
+        <br>
+        <p>Contact us through your preferred method below.</p>
+
+
+        <div class="booking-options">
+          <a href="https://wa.me/14375456524?text=Hello,%20I%20am%20interested%20in%20booking%20a%20tutoring%20session."
+             class="btn primary-btn"
+             target="_blank">
+             WhatsApp
+          </a>
+
+          <a href="mailto:nslearning26@gmail.com?subject=Tutoring Inquiry"
+             class="btn secondary-btn">
+             Email
+          </a>
+
+          <a href="tel:+14375456524"
+             class="btn secondary-btn">
+             Call
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 NEXTSTEP LEARNING. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
